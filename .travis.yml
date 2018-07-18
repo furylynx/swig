@@ -3,17 +3,7 @@ matrix:
   include:
     - compiler: gcc
       os: linux
-      env: SWIGLANG=javascript ENGINE=node VER=4
-      sudo: required
-      dist: trusty
-    - compiler: gcc
-      os: linux
-      env: SWIGLANG=javascript ENGINE=node VER=6
-      sudo: required
-      dist: trusty
-    - compiler: gcc
-      os: linux
-      env: SWIGLANG=javascript ENGINE=node VER=8
+      env: SWIGLANG=javascript ENGINE=node
       sudo: required
       dist: trusty
     - compiler: gcc
