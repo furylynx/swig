@@ -44,8 +44,8 @@ case "$SWIGLANG" in
 					#travis_retry sudo apt-get install -y nodejs rlwrap
 					#travis_retry sudo npm install -g node-gyp
 					travis_retry wget -qO- https://raw.githubusercontent.com/xtuple/nvm/master/install.sh | sudo bash
-					nvm install ${VER}
-					nvm use ${VER}
+					sudo nvm install ${VER}
+					sudo nvm use ${VER}
 					travis_retry sudo npm install -g node-gyp
 				fi
 				;;
