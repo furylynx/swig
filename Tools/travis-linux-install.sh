@@ -37,9 +37,13 @@ case "$SWIGLANG" in
 	"javascript")
 		case "$ENGINE" in
 			"node")
-				curl -sL https://deb.nodesource.com/setup_${VER}.x | sudo -E bash -
-				travis_retry sudo apt-get install -y nodejs rlwrap
-				travis_retry sudo npm install -g node-gyp
+				if [[ -z "$VER" ]]; then
+					travis_retry sudo apt-get install -qq nodejs node-gyp
+				else
+					curl -sL https://deb.nodesource.com/setup_${VER}.x | sudo -E bash -
+					travis_retry sudo apt-get install -y nodejs rlwrap
+					travis_retry sudo npm install -g node-gyp
+				fi
 				;;
 			"jsc")
 				travis_retry sudo apt-get install -qq libwebkitgtk-dev
