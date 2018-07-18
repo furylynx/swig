@@ -43,11 +43,12 @@ case "$SWIGLANG" in
 					#curl -sL https://deb.nodesource.com/setup_${VER}.x | sudo -E bash -
 					#travis_retry sudo apt-get install -y nodejs rlwrap
 					#travis_retry sudo npm install -g node-gyp
-					wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.10/install.sh | bash
+					travis_retry wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.10/install.sh | bash
 					export NVM_DIR="$HOME/.nvm"
 					[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 					nvm install ${VER}
 					nvm use ${VER}
+					travis_retry sudo npm install -g node-gyp
 				fi
 				;;
 			"jsc")
