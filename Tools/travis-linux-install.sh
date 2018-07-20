@@ -46,7 +46,7 @@ case "$SWIGLANG" in
 					travis_retry wget -qO- https://raw.githubusercontent.com/xtuple/nvm/master/install.sh | sudo bash
 					sudo nvm install ${VER}
 					sudo nvm use ${VER}
-					travis_retry sudo npm install -g node-gyp
+					npm install -g node-gyp
 					node-gyp --help
 				fi
 				;;
