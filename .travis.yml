@@ -8,7 +8,7 @@ matrix:
       dist: trusty
     - compiler: gcc
       os: linux
-      env: SWIGLANG=javascript ENGINE=node VER=10 CPP11=1
+      env: SWIGLANG=javascript ENGINE=node VER=10 #CPP11=1
       sudo: required
       dist: trusty
 
