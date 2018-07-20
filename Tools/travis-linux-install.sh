@@ -47,6 +47,7 @@ case "$SWIGLANG" in
 					sudo nvm install ${VER}
 					sudo nvm use ${VER}
 					travis_retry sudo npm install -g node-gyp
+					node-gyp --help
 				fi
 				;;
 			"jsc")
