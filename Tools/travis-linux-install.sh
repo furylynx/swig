@@ -41,11 +41,15 @@ case "$SWIGLANG" in
 					travis_retry sudo apt-get install -qq nodejs node-gyp
 				else
 					travis_retry wget -qO- https://raw.githubusercontent.com/xtuple/nvm/master/install.sh | sudo bash
-					sudo nvm install ${VER} || echo "nvm"
+					echo "wget done"
+					sudo nvm install ${VER}
+					echo "nvm install done"
 					nvm use ${VER}
+					echo "nvm use done"
 					npm --version
 					node --version
 					travis_retry npm install -g node-gyp
+					echo "nvm gyp done"
 				fi
 				;;
 			"jsc")
