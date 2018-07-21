@@ -40,13 +40,8 @@ case "$SWIGLANG" in
 				if [[ -z "$VER" ]]; then
 					travis_retry sudo apt-get install -qq nodejs node-gyp
 				else
-					# travis_retry curl -sL https://deb.nodesource.com/setup_${VER}.x | sudo -E bash -
-					# travis_retry sudo apt-get install -y nodejs
-					# travis_retry npm install -g node-gyp
-					# curl -sL https://deb.nodesource.com/setup_${VER}.x | sudo -E bash -
-					# travis_retry sudo apt-get install -y nodejs rlwrap
 					travis_retry wget -qO- https://raw.githubusercontent.com/xtuple/nvm/master/install.sh | sudo bash
-					travis_retry nvm install ${VER}
+					travis_retry sudo nvm install ${VER}
 					nvm use ${VER}
 					npm --version
 					node --version
