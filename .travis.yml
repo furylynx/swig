@@ -13,12 +13,27 @@ matrix:
       dist: trusty
     - compiler: gcc
       os: linux
+      env: SWIGLANG=javascript ENGINE=node VER=5 CPP11=1
+      sudo: required
+      dist: trusty
+    - compiler: gcc
+      os: linux
       env: SWIGLANG=javascript ENGINE=node VER=6 CPP11=1
       sudo: required
       dist: trusty
     - compiler: gcc
       os: linux
+      env: SWIGLANG=javascript ENGINE=node VER=7 CPP11=1
+      sudo: required
+      dist: trusty
+    - compiler: gcc
+      os: linux
       env: SWIGLANG=javascript ENGINE=node VER=8 CPP11=1
+      sudo: required
+      dist: trusty
+    - compiler: gcc
+      os: linux
+      env: SWIGLANG=javascript ENGINE=node VER=9 CPP11=1
       sudo: required
       dist: trusty
     - compiler: gcc
