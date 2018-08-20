@@ -1578,6 +1578,22 @@ else
       JSCOREDYNAMICLINKING="$JSCORELIB"
       JSCENABLED=1
     fi
+
+  if test ! -z "$JSCENABLED"; then
+    jsc_save_CFLAGS="$CFLAGS"
+    jsc_save_LDFLAGS="$LDFLAGS"
+    CFLAGS="$CFLAGS -I$JSCOREINCDIR"
+    LDFLAGS="$LDFLAGS $JSCORELIB -Wl,-no-undefined"
+    AC_LINK_IFELSE([AC_LANG_PROGRAM([[
+        #include <JavaScriptCore/JavaScript.h>
+        void JSSynchronousGarbageCollectForDebugging(JSContextRef);
+    ]], [[
+        JSContextRef context = JSGlobalContextCreate(NULL);
+        JSSynchronousGarbageCollectForDebugging(context);
+    ]])], [JSCGARBAGE=1], [JSCGARBAGE=0])
+    CFLAGS="$jsc_save_CFLAGS"
+    LDFLAGS="$jsc_save_LDFLAGS"
+    AC_SUBST(JSCGARBAGE)
   fi
 
   #----------------------------------------------------------------
