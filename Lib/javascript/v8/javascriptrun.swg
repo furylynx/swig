@@ -165,7 +165,7 @@ public:
 #elif (V8_MAJOR_VERSION-0) < 4 && (SWIG_V8_VERSION < SWIGV8_SETWEAK_VERSION)
     handle.ClearWeak();
     handle.Dispose();
-#else    
+#else
     handle.ClearWeak();
     handle.Reset();
 #endif
@@ -352,7 +352,7 @@ SWIGRUNTIME void SWIGV8_SetPrivateData(v8::Handle<v8::Object> obj, void *ptr, sw
 
 SWIGRUNTIME int SWIG_V8_ConvertPtr(v8::Handle<v8::Value> valRef, void** ptr, swig_type_info *info, int flags, int *own) {
   SWIGV8_HANDLESCOPE();
-  
+
   /* special case: JavaScript null => C NULL pointer */
   if(valRef->IsNull()) {
     *ptr=0;
@@ -367,13 +367,13 @@ SWIGRUNTIME int SWIG_V8_ConvertPtr(v8::Handle<v8::Value> valRef, void** ptr, swi
 
 SWIGRUNTIME v8::Handle<v8::Value> SWIG_V8_NewPointerObj(void *ptr, swig_type_info *info, int flags) {
   SWIGV8_HANDLESCOPE_ESC();
-  
+
   v8::Handle<v8::FunctionTemplate> class_templ;
 
   if (ptr == NULL) {
 #if (V8_MAJOR_VERSION-0) < 4 && (SWIG_V8_VERSION < 0x031903)
     SWIGV8_ESCAPE(SWIGV8_NULL());
-#else    
+#else
     v8::Local<v8::Primitive> result = SWIGV8_NULL();
     SWIGV8_ESCAPE(result);
 #endif
@@ -403,7 +403,7 @@ SWIGRUNTIME v8::Handle<v8::Value> SWIG_V8_NewPointerObj(void *ptr, swig_type_inf
 }
 
 #define SWIG_ConvertPtr(obj, ptr, info, flags)    SWIG_V8_ConvertPtr(obj, ptr, info, flags, 0)
-#define SWIG_ConvertPtrAndOwn(obj,pptr,type,flags, own)  SWIG_V8_ConvertPtr(obj, pptr, type, flags, own)
+#define SWIG_ConvertPtrAndOwn(obj, pptr, type, flags, own)  SWIG_V8_ConvertPtr(obj, pptr, type, flags, own)
 #define SWIG_NewPointerObj(ptr, info, flags)      SWIG_V8_NewPointerObj(ptr, info, flags)
 
 #define SWIG_ConvertInstance(obj, pptr, type, flags)    SWIG_V8_ConvertInstancePtr(obj, pptr, type, flags)
@@ -416,7 +416,7 @@ SWIGRUNTIME v8::Handle<v8::Value> SWIG_V8_NewPointerObj(void *ptr, swig_type_inf
 
 SWIGRUNTIME SwigV8ReturnValue _SWIGV8_wrap_equals(const SwigV8Arguments &args) {
   SWIGV8_HANDLESCOPE();
-  
+
   v8::Handle<v8::Value> jsresult;
   void *arg1 = (void *) 0 ;
   void *arg2 = (void *) 0 ;
@@ -446,7 +446,7 @@ fail:
 
 SWIGRUNTIME SwigV8ReturnValue _wrap_getCPtr(const SwigV8Arguments &args) {
   SWIGV8_HANDLESCOPE();
-  
+
   v8::Handle<v8::Value> jsresult;
   void *arg1 = (void *) 0 ;
   long result;
@@ -488,7 +488,7 @@ public:
 SWIGRUNTIMEINLINE
 int SwigV8Packed_Check(v8::Handle<v8::Value> valRef) {
   SWIGV8_HANDLESCOPE();
-  
+
   v8::Handle<v8::Object> objRef = valRef->ToObject();
   if(objRef->InternalFieldCount() < 1) return false;
 #if (V8_MAJOR_VERSION-0) < 5
@@ -506,7 +506,7 @@ SWIGRUNTIME
 swig_type_info *SwigV8Packed_UnpackData(v8::Handle<v8::Value> valRef, void *ptr, size_t size) {
   if (SwigV8Packed_Check(valRef)) {
     SWIGV8_HANDLESCOPE();
-    
+
     SwigV8PackedData *sobj;
 
     v8::Handle<v8::Object> objRef = valRef->ToObject();
@@ -644,13 +644,13 @@ v8::Handle<v8::Value> SWIGV8_AppendOutput(v8::Handle<v8::Value> result, v8::Hand
 v8::Handle<v8::Value> SWIGV8_AppendOutput(v8::Local<v8::Value> result, v8::Handle<v8::Value> obj) {
 #endif
   SWIGV8_HANDLESCOPE_ESC();
-  
+
   if (result->IsUndefined()) {
     result = SWIGV8_ARRAY_NEW();
   }
 #if (V8_MAJOR_VERSION-0) < 4 && (SWIG_V8_VERSION < 0x031903)
   v8::Handle<v8::Array> arr = v8::Handle<v8::Array>::Cast(result);
-#else  
+#else
   v8::Local<v8::Array> arr = v8::Local<v8::Array>::Cast(result);
 #endif
   arr->Set(arr->Length(), obj);
