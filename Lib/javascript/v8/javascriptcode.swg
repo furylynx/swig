@@ -10,9 +10,9 @@
 %fragment("js_ctor", "templates") %{
 static SwigV8ReturnValue $jswrapper(const SwigV8Arguments &args) {
   SWIGV8_HANDLESCOPE();
-  
+
   v8::Handle<v8::Value> jsresult;
-  v8::Handle<v8::Object> self = args.Holder();
+  //v8::Handle<v8::Object> self = args.Holder();
   $jslocals
   if(args.Length() != $jsargcount) SWIG_exception_fail(SWIG_ERROR, "Illegal number of arguments for $jswrapper.");
   $jscode
@@ -34,7 +34,7 @@ fail:
 %{
 static SwigV8ReturnValue $jswrapper(const SwigV8Arguments &args) {
   SWIGV8_HANDLESCOPE();
-  
+
   SWIG_exception(SWIG_ERROR, "Class $jsname can not be instantiated");
 fail:
   SWIGV8_RETURN(SWIGV8_UNDEFINED());
@@ -51,7 +51,7 @@ fail:
 %{
 static SwigV8ReturnValue $jswrapper(const SwigV8Arguments &args) {
   SWIGV8_HANDLESCOPE();
-  
+
   OverloadErrorHandler errorHandler;
   v8::Handle<v8::Value> self;
 
@@ -77,9 +77,9 @@ fail:
 %fragment("js_overloaded_ctor", "templates") %{
 static SwigV8ReturnValue $jswrapper(const SwigV8Arguments &args, V8ErrorHandler &SWIGV8_ErrorHandler) {
   SWIGV8_HANDLESCOPE();
-  
+
   v8::Handle<v8::Value> jsresult;
-  v8::Handle<v8::Object> self = args.Holder();
+  //v8::Handle<v8::Object> self = args.Holder();
   $jslocals
   if(args.Length() != $jsargcount) SWIG_exception_fail(SWIG_ERROR, "Illegal number of arguments for $jswrapper.");
   $jscode
@@ -202,7 +202,7 @@ static SwigV8ReturnValue $jswrapper(v8::Local<v8::String> property, const SwigV8
 static SwigV8ReturnValue $jswrapper(v8::Local<v8::Name> property, const SwigV8PropertyCallbackInfo &info) {
 #endif
   SWIGV8_HANDLESCOPE();
-  
+
   v8::Handle<v8::Value> jsresult;
   $jslocals
   $jscode
@@ -228,7 +228,7 @@ static void $jswrapper(v8::Local<v8::String> property, v8::Local<v8::Value> valu
 static void $jswrapper(v8::Local<v8::Name> property, v8::Local<v8::Value> value, const SwigV8PropertyCallbackInfoVoid &info) {
 #endif
   SWIGV8_HANDLESCOPE();
-  
+
   $jslocals
   $jscode
   goto fail;
@@ -247,7 +247,7 @@ fail:
 %{
 static SwigV8ReturnValue $jswrapper(const SwigV8Arguments &args) {
   SWIGV8_HANDLESCOPE();
-  
+
   v8::Handle<v8::Value> jsresult;
   $jslocals
   if(args.Length() != $jsargcount) SWIG_exception_fail(SWIG_ERROR, "Illegal number of arguments for $jswrapper.");
@@ -272,7 +272,7 @@ fail:
 %{
 static SwigV8ReturnValue $jswrapper(const SwigV8Arguments &args) {
   SWIGV8_HANDLESCOPE();
-  
+
   v8::Handle<v8::Value> jsresult;
   OverloadErrorHandler errorHandler;
   $jscode
@@ -296,7 +296,7 @@ fail:
 static SwigV8ReturnValue $jswrapper(const SwigV8Arguments &args, V8ErrorHandler &SWIGV8_ErrorHandler)
 {
   SWIGV8_HANDLESCOPE();
-  
+
   v8::Handle<v8::Value> jsresult;
   $jslocals
   $jscode
